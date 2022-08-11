@@ -15,7 +15,7 @@ class App extends React.Component {
         axios
             .get('http://127.0.0.1:8002/api/authors/')
             .then(response => {
-                const authors = response.data
+                const authors = response.data.results
                 this.setState(
                     {
                         'authors': authors
