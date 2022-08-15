@@ -21,7 +21,7 @@ class AuthorLimitOffsetPagination(LimitOffsetPagination):
 
 
 class AuthorModelViewSet(ModelViewSet):
-    pagination_class = AuthorLimitOffsetPagination
+    # pagination_class = AuthorLimitOffsetPagination
     serializer_class = AuthorModelSerializer
     queryset = Author.objects.all()
 
