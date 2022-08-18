@@ -12,8 +12,16 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly, IsAdminUser, \
+    BasePermission, DjangoModelPermissions, DjangoModelPermissionsOrAnonReadOnly
 from .models import Author, Book
 from .serializers import AuthorModelSerializer, AuthorSerializer, BookModelSerializer, BookSerializer
+
+
+class CustomPermissions(BasePermission):
+
+    def has_permission(self, request, view):
+        return request.user and request.user.username == 'denis'
 
 
 class AuthorLimitOffsetPagination(LimitOffsetPagination):
@@ -22,6 +30,7 @@ class AuthorLimitOffsetPagination(LimitOffsetPagination):
 
 class AuthorModelViewSet(ModelViewSet):
     # pagination_class = AuthorLimitOffsetPagination
+    permission_classes = [DjangoModelPermissions]
     serializer_class = AuthorModelSerializer
     queryset = Author.objects.all()
 

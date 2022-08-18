@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'library'
 ]
@@ -91,6 +92,8 @@ DATABASES = {
 }
 
 # from rest_framework.pagination import PageNumberPagination
+# from rest_framework.permissions import IsAuthenticated
+# from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
@@ -99,6 +102,13 @@ REST_FRAMEWORK = {
     ],
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 2
+    # 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+
 }
 
 if DEBUG:
