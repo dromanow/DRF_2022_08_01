@@ -20,13 +20,19 @@ const AuthorBookList = ({books}) => {
 
     return (
         <table>
-            <th>
-                Title
-            </th>
-            <th>
-                Authors
-            </th>
-            {filteredBooks.map((book) => <BookItem book={book} /> )}
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Authors
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {filteredBooks.map((book) => <BookItem book={book} /> )}
+            </tbody>
         </table>
     )
 }

@@ -14,13 +14,19 @@ const BookItem = ({book, authors}) => {
 const BookList = ({books, authors}) => {
     return (
         <table>
-            <th>
-                Title
-            </th>
-            <th>
-                Authors
-            </th>
-            {books.map((book) => <BookItem book={book} authors={authors}/> )}
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Authors
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {books.map((book) => <BookItem book={book} authors={authors}/> )}
+            </tbody>
         </table>
     )
 }

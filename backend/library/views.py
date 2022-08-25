@@ -30,7 +30,7 @@ class AuthorLimitOffsetPagination(LimitOffsetPagination):
 
 class AuthorModelViewSet(ModelViewSet):
     # pagination_class = AuthorLimitOffsetPagination
-    permission_classes = [DjangoModelPermissions]
+    # permission_classes = [DjangoModelPermissions]
     serializer_class = AuthorModelSerializer
     queryset = Author.objects.all()
 

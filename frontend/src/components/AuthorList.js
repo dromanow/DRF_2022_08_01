@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 const AuthorItem = ({author}) => {
     return (
         <tr>
+
             <td>
                 {author.first_name}
             </td>
@@ -20,16 +21,22 @@ const AuthorItem = ({author}) => {
 const AuthorList = ({authors}) => {
     return (
         <table>
-            <th>
-                First name
-            </th>
-            <th>
-                Last name
-            </th>
-            <th>
-                Birthday year
-            </th>
-            {authors.map((author) => <AuthorItem author={author} /> )}
+            <thead>
+                <tr>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                        Birthday year
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {authors.map((author) => <AuthorItem author={author} /> )}
+            </tbody>
         </table>
     )
 }

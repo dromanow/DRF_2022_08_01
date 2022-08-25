@@ -22,8 +22,8 @@ from library.views import *
 router = DefaultRouter()
 # router = SimpleRouter()
 router.register('authors', AuthorModelViewSet)
-# router.register('books', BookModelViewSet)
-router.register('books', BookModelLimitedViewSet)
+router.register('books', BookModelViewSet)
+# router.register('books', BookModelLimitedViewSet)
 
 # http://127.0.0.1:8002/api/authors/?first_name=%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80
 
