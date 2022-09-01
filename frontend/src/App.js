@@ -62,7 +62,8 @@ class App extends React.Component {
                 'Authorization': 'Token ' + this.state.token
             }
         }
-        return {}
+//        return { 'Accept': 'application/json; version=2.0' }
+        return { }
     }
 
     getData() {
