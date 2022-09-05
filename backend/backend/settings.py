@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django',
     'corsheaders',
     'library'
 ]
@@ -147,6 +148,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'library.graphql.schema'
+}
 
 
 # Internationalization

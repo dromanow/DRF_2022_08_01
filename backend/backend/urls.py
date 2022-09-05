@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.routers import DefaultRouter, SimpleRouter
 from rest_framework.authtoken import views
 from library.views import *
 from drf_yasg.views import get_schema_view
 from drf_yasg.openapi import Info, License, Contact
+from graphene_django.views import GraphQLView
 
 schema_view = get_schema_view(
     Info(
@@ -62,5 +64,6 @@ urlpatterns = [
     path('author_post', author_post),
     path('author_post/<int:pk>', author_post),
     path('swagger', schema_view.with_ui()),
+    path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
     re_path(r'swagger(?P<format>\.json|\.yaml)', schema_view.without_ui()),
 ]
