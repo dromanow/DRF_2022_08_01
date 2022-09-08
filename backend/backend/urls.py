@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter, SimpleRouter
 from rest_framework.authtoken import views
 from library.views import *
@@ -66,4 +67,5 @@ urlpatterns = [
     path('swagger', schema_view.with_ui()),
     path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
     re_path(r'swagger(?P<format>\.json|\.yaml)', schema_view.without_ui()),
+    path('', TemplateView.as_view(template_name='index.html'))
 ]
